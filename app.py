@@ -2,6 +2,7 @@ import streamlit as st
 import pickle
 import numpy as np
 import pandas as pd
+import scipy
 from scipy.sparse import csr_matrix
 # Load the saved preprocessing pipeline
 with open('preprocessing_pipeline.pkl', 'rb') as file:
