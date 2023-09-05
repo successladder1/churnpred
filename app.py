@@ -20,22 +20,25 @@ def main():
     user_input_data = {}
     user_input_data['Age'] = st.number_input('Age', min_value=0, max_value=100)
     user_input_data['Gender'] = st.selectbox('Gender', ['Male', 'Female'])
-    user_input_data['Location'] = st.text_input('Location')
+    location_options = ['Miami', 'Houston', 'Los Angeles', 'Chicago', 'New York']
+    user_input_data['Location'] = st.selectbox('Location', location_options)
     user_input_data['Subscription_Length_Months'] = st.number_input('Subscription Length (Months)', min_value=0, max_value=100)
     user_input_data['Monthly_Bill'] = st.number_input('Monthly Bill', min_value=0.0, max_value=1000.0)
     user_input_data['Total_Usage_GB'] = st.number_input('Total Usage (GB)', min_value=0, max_value=1000)
 
-    # Convert user input data to a DataFrame
-    user_input_df = pd.DataFrame([user_input_data])
+    if st.button('Predict'):
+        # Convert user input data to a DataFrame
+        user_input_df = pd.DataFrame([user_input_data])
 
-    # Apply preprocessing using the preprocessing pipeline
-    preprocessed_data = preprocessing_pipeline.transform(user_input_df)
-    preprocessed_data1=csr_matrix(preprocessed_data)
-    # Apply feature selection and make predictions using the classification pipeline
-    prediction = classification_pipeline.predict(preprocessed_data1)
+        # Apply preprocessing using the preprocessing pipeline
+        preprocessed_data = preprocessing_pipeline.transform(user_input_df)
+        preprocessed_data1 = csr_matrix(preprocessed_data)
 
-    # Display the prediction
-    st.write('Prediction:', prediction[0])
+        # Apply feature selection and make predictions using the classification pipeline
+        prediction = classification_pipeline.predict(preprocessed_data1)
+
+        # Display the prediction
+        st.write('Prediction:', prediction[0])
 
 if __name__ == "__main__":
     main()
