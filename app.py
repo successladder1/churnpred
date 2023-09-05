@@ -2,7 +2,7 @@ import streamlit as st
 import pickle
 import numpy as np
 import pandas as pd
-
+from scipy.sparse import csr_matrix
 def main():
     # Load the saved preprocessing pipeline
     with open('preprocessing_pipeline.pkl', 'rb') as file:
@@ -30,8 +30,9 @@ def main():
 
     # Apply preprocessing using the preprocessing pipeline
     preprocessed_data = preprocessing_pipeline.transform(user_input_df)
+    preprocessed_data1=csr_matrix(preprocessed_data)
     # Apply feature selection and make predictions using the classification pipeline
-    prediction = classification_pipeline.predict(preprocessed_data)
+    prediction = classification_pipeline.predict(preprocessed_data1)
 
     # Display the prediction
     st.write('Prediction:', prediction[0])
