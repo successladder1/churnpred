@@ -30,3 +30,5 @@ Classification Report: A detailed report including precision, recall, F1-score, 
 ## Results
 The model achieved a training accuracy of 0.51, as well as a detailed breakdown of performance in the classification report. 
 
+## Access the app from the link given below:
+[https://churnpred-9q885xxjtgpqntv4lg3wpr.streamlit.app/](https://churnpred-9q885xxjtgpqntv4lg3wpr.streamlit.app/)
