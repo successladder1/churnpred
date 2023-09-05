@@ -14,6 +14,11 @@ Feature Transformation: The preprocessing transformer was applied to the entire 
 ### Model Selection:
 
 Feature Selection: For feature selection, I used a RandomForestClassifier in combination with SelectFromModel. This allowed me to select important features based on feature importances calculated by the RandomForestClassifier, with a maximum depth of 4 for the decision trees.
+I also tried other models :
+* LinearSVC
+* LogisticRegression
+* XGBoost
+* Neural Networks
 Classification Model: After feature selection, I built a classification pipeline that included the feature selector and another RandomForestClassifier for classification. The classifier was configured with parallel processing (n_jobs=-1) and a maximum depth of 4.
 ### Model Training and Evaluation:
 
