@@ -9,7 +9,7 @@ def main():
         preprocessing_pipeline = pickle.load(file)
 
     # Load the saved feature selection/classification pipeline
-    with open('classification_pipeline.pkl', 'rb') as file:
+    with open('classification_pipeline (1).pkl', 'rb') as file:
         classification_pipeline = pickle.load(file)
 
     # Streamlit UI
