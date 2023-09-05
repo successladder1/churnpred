@@ -9,7 +9,7 @@ def main():
         preprocessing_pipeline = pickle.load(file)
 
     # Load the saved feature selection/classification pipeline
-    with open('classification_pipeline (1).pkl', 'rb') as file:
+    with open('classification_pipeline.pkl', 'rb') as file:
         classification_pipeline = pickle.load(file)
 
     # Streamlit UI
@@ -25,6 +25,7 @@ def main():
     user_input_data['Subscription_Length_Months'] = st.number_input('Subscription Length (Months)', min_value=0, max_value=100)
     user_input_data['Monthly_Bill'] = st.number_input('Monthly Bill', min_value=0.0, max_value=1000.0)
     user_input_data['Total_Usage_GB'] = st.number_input('Total Usage (GB)', min_value=0, max_value=1000)
+    user_input_data['Subscription_Cost']=user_input_data['Subscription_Length_Months'] * user_input_data['Monthly_Bill']
 
     if st.button('Predict'):
         # Convert user input data to a DataFrame
